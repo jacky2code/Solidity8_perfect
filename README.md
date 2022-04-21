@@ -7,7 +7,7 @@
 
 <img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421163804.png" alt="20220421163804.png"/>
 
-<img src="/Users/jacky/Library/Application Support/typora-user-images/image-20220421164004140.png" alt="image-20220421164004140"/>
+<img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421170404.png" alt="image-20220421164004140"/>
 
 ### 1.2 发布测试环境
 
@@ -15,7 +15,7 @@
 
 <img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421163640.png" style="zoom: 50%;" />
 
-<img src="/Users/jacky/Library/Application Support/typora-user-images/image-20220421164112538.png" alt="image-20220421164112538" style="zoom: 50%;" />
+<img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421170417.png" alt="image-20220421164112538" style="zoom: 50%;" />
 
 ## 2. HelloWorld
 - 代码部分
