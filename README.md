@@ -280,3 +280,56 @@ contract DefaultValues {
 
 
 
+## 9. 常量
+
+使用常量消耗gas比变量少
+
+``` solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.7 <0.9.0;
+
+/**
+ * 常量
+ * 读取常量消耗的gas会比较小，编译部署，运行下面合约看看调用address分别消耗多少gas（详细需要部署到页面端Remix查看）
+ */
+contract Constants {
+    address public constant MY_ADDRESS = 0x08655Ac0d18E0a77C04cdec8bd53A38a925d27f6;
+    uint public constant MY_UINT = 123;
+}
+
+contract NormalVar {
+    address public NorAddress = 0x08655Ac0d18E0a77C04cdec8bd53A38a925d27f6;
+}
+```
+
+
+
+## 10. 结构控制
+
+ 使用 if else 进行结构控制，或者使用三元运算符
+
+``` solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.7 <0.9.0;
+
+/**
+ * 结构控制
+ */
+contract IfElse {
+    function example (uint x) external pure returns (uint) {
+        if(x < 10) {
+            return 1;
+        } else if (x < 20) {
+            return 2;
+        } else {
+            return 3;
+        }
+    }
+
+    function ternary(uint x) external pure returns (uint) {
+        // 三目运算
+        return x < 10 ? 1 : 2;
+    }
+}
+```
+
