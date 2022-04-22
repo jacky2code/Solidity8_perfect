@@ -29,7 +29,7 @@ contract Error {
     }
 
 
-    error MyError(adress caller, uint i);
+    error MyError(address caller, uint i);
     function testCustomError(uint i) public view {
         if(i> 10)
         {
