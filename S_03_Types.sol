@@ -19,6 +19,5 @@ contract Types {
     int public maxInt = type(int).max;
 
     address public addr = 0x08655Ac0d18E0a77C04cdec8bd53A38a925d27f6;
-
     bytes32 public b32 = 0x657468657265756d000000000000000000000000000000000000000000000000;
 }
