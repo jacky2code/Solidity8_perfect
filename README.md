@@ -234,8 +234,48 @@ contract Counter {
     function dec() external {
         count -= 1;
     }
-
 }
+```
+
+
+
+## 8. 默认值
+
+``` solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.7 <0.9.0;
+
+/**
+ * 默认值
+ */
+contract DefaultValues {
+    bool public b;  // default: false
+    uint public u;  // default: 0
+    int public i;   // default: 0
+    address public a;   // default: 0x0000000000000000000000000000000000000000
+    bytes32 public b32; // default: 0x0000000000000000000000000000000000000000000000000000000000000000
+
+    // mapping, structs, enums, fixed sized arrays
+}
+```
+
+编译部署后，运行
+
+``` bash
+[2:17:10 PM]: Calling method 'b32' with [] from 0x821251076b7B613AEF850A84a79977C4d7C2E329 at contract address 0xDED404CE158A48a8A0cFBA66eEA67327aFf69D9b
+[2:17:10 PM]: "0x0000000000000000000000000000000000000000000000000000000000000000"
+[2:17:35 PM]: Network is a local or custom network!
+[2:17:35 PM]: Calling method 'a' with [] from 0x821251076b7B613AEF850A84a79977C4d7C2E329 at contract address 0xDED404CE158A48a8A0cFBA66eEA67327aFf69D9b
+[2:17:35 PM]: "0x0000000000000000000000000000000000000000"
+[2:17:58 PM]: Network is a local or custom network!
+[2:17:58 PM]: Calling method 'i' with [] from 0x821251076b7B613AEF850A84a79977C4d7C2E329 at contract address 0xDED404CE158A48a8A0cFBA66eEA67327aFf69D9b
+[2:17:58 PM]: "0"
+[2:18:01 PM]: Network is a local or custom network!
+[2:18:01 PM]: Calling method 'u' with [] from 0x821251076b7B613AEF850A84a79977C4d7C2E329 at contract address 0xDED404CE158A48a8A0cFBA66eEA67327aFf69D9b
+[2:18:02 PM]: "0"
+[2:18:11 PM]: Network is a local or custom network!
+[2:18:11 PM]: Calling method 'b' with [] from 0x821251076b7B613AEF850A84a79977C4d7C2E329 at contract address 0xDED404CE158A48a8A0cFBA66eEA67327aFf69D9b
+[2:18:11 PM]: false
 ```
 
 
