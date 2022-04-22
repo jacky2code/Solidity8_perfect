@@ -5,7 +5,7 @@ pragma solidity >=0.8.7 <0.9.0;
  * 变量
  */
 contract Variables {
-    // 3.1 状态变量 StateVariables ： 写入区块链的变量数据
+    // 3.1 状态变量 StateVariables ：写入区块链的变量数据
     uint public myUint = 123;
     uint public i;
     bool public b;
