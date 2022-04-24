@@ -18,4 +18,21 @@ contract FunctionOutputs {
         x = 1;
         b = false;
     }
+
+    // 获取返回值
+    function destructingAssigments() public pure {
+        (uint x, bool b) = returnManay();
+        // 只取一个返回值
+        (, bool c) = returnManay();
+
+        x = x + 1;
+        if(b)
+        {
+            x = x * 1;
+        }
+        if(c)
+        {
+            x = x * 2;
+        }
+    }
 }
