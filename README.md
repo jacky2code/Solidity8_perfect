@@ -757,7 +757,42 @@ contract Array {
   }
   ```
 
-  
+   
+## 19. 映射
+从查找是否有 "tom" 这个值
+
+- 第一种
+  - 示例：["jacky1", "jacky2", "jacky3", "jacky4"]
+  - 思路：挨个循环查找，消耗大量gas；
+- 第二种
+  - 示例：["jacky1":true, "jacky2":true, "jacky3":true, "jacky4":true]
+  - 思路：键值映射 true，只要判断arr["tom"]是否true就可以。
+
+``` solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.7 <0.9.0;
+
+// Mapping
+// How to declare mapping (simple and nested)
+// Set, get, delete
+contract Mapping {
+    // 地址，余额映射
+    mapping(address => uint) public balances;
+    // 多重映射
+    mapping(address => mapping(address => bool)) public isFirend;
+
+    function examples() external {
+        // 赋值
+        balances[msg.sender] = 1234;
+        // 获取值
+        uint bal = balances[msg.sender];
+        uint bal2 = balances[address(1)];   // 不存在应设置，默认返回 uint 默认值0
+        balances[msg.sender] += 456;    // 123 + 456
+        delete balances[msg.sender];    // 删除后，变成默认值 0
+        isFirend[msg.sender][address(this)] = true;
+    }
+}
+```
 
 
 
