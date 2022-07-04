@@ -1471,3 +1471,42 @@ contract TestContract {
 }
 ```
 
+## 37. 接口合约
+
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.7;
+
+contract Counter {
+    uint public count;
+
+    function inc() external {
+        count += 1;
+    }
+
+    function dec() external {
+        count -= 1;
+    }
+}
+```
+
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.7;
+
+// 不知道合约代码或者合约代码太庞大，写接口进行调用
+interface ICounter {
+    function count() external view returns (uint);
+    function inc() external;
+}
+
+contract CallInterface {
+    uint public count;
+
+    function examples(address _counter) external {
+        ICounter(_counter).inc();
+        count = ICounter(_counter).count();
+    }
+}
+```
+
