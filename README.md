@@ -74,30 +74,65 @@
 
 bool, uint, int, address, bytes32
 
+- bool
+
+  ```solidity
+  bool public b = true;
+  ```
+
+- uint
+
+  - uint 是 uint256 默认缩写，为了好的代码习惯，最好写成uint256，以辨认范围
+
+  - 无符号整数，正整数，没有负数
+  - 范围 0 to 2 ** 256 - 1
+  - 其他范围
+    - uint8: 范围 0 to 2 ** 8 - 1 
+    - uint16: 范围 0 to 2 ** 16 - 1 
+
+- int
+
+  - int 是 int256 的缩写
+  - 范围 -2 ** 255 to 2 ** 255 - 1 
+  - 其他范围
+    - int128：-2 ** 127 to 2 ** 127 - 1 
+
+- address
+
+  address 是一个16进制数字，通过私钥公钥计算出来
+
+  ``` solidity
+  address public addr = 0x08655Ac0d18E0a77C04cdec8bd53A38a925d27f6;
+  ```
+
+- bytes32
+
 ``` solidity
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
-pragma solidity >=0.8.7 <0.9.0;
-
-/**
- * 类型
- */
+// Data types -- value and references
 contract Types {
+    // bool
     bool public b = true;
 
-    // uint = uint256 0 to 2**256 -1
-    //        uint8   0 to 2**8 - 1
-    //        uint16  0 to 2**16 - 1
-    uint public u = 123;
+    // uint = uint256 范围 0 to 2**256 -1
+    //        uint8   范围 0 to 2**8 - 1
+    //        uint16  范围 0 to 2**16 - 1
+    uint256 public u256 = 2 ** 256 - 1;
+    uint8 public u8 = 2 ** 8 - 1;
+    uint16 public u16 = 2 ** 16 -1;
 
-    // int = int256 -2**255 to 2**255 -1 
-    int public i = -123;
+    // int = int256 范围 -2**255 to 2**255 -1 
+    int256 public i256 = -123;
 
+    // int 最小值
     int public minInt = type(int).min;
+    // int 最大值
     int public maxInt = type(int).max;
 
+    // address 是一个16进制数字，通过私钥公钥计算出来
     address public addr = 0x08655Ac0d18E0a77C04cdec8bd53A38a925d27f6;
-
     bytes32 public b32 = 0x657468657265756d000000000000000000000000000000000000000000000000;
 }
 ```
