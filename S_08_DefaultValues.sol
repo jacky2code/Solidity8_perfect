@@ -1,15 +1,13 @@
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
-/**
- * 默认值
- */
+// Default values 默认值
 contract DefaultValues {
-    bool public b;  // default: false
-    uint public u;  // default: 0
-    int public i;   // default: 0
-    address public a;   // default: 0x0000000000000000000000000000000000000000
-    bytes32 public b32; // default: 0x0000000000000000000000000000000000000000000000000000000000000000
+    bool public b;  // default value: false
+    uint public u;  // default value: 0
+    int public i;   // default value: 0
+    address public a;   // default value: 0x0000000000000000000000000000000000000000
+    bytes32 public b32; // default value: 0x0000000000000000000000000000000000000000000000000000000000000000
 
     // mapping, structs, enums, fixed sized arrays
 }
