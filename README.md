@@ -2,10 +2,11 @@
 
 
 
-## 1. 环境部署
+## 1. Environment 环境部署
 
 部署开发环境，及本地的发布测试环境
-### 1.1 开发环境
+
+### 1.1 Develop 开发环境
 
 本教程使用 vscode ，在插件市场中下载 Ethereum Remix 插件，自动安装所需插件。编译版本选择 0.8.7及以上
 
@@ -13,13 +14,15 @@
 
 <img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421170404.png" align="center" style="width:500px"/>
 
-### 1.2 发布测试环境
+### 1.2 Testnet 发布测试环境
 
 下载安装 Ganache 选择 quickstart 部署本地发布测试环境
 
 <img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421163640.png" align="center" style="width:500px" />
 
 <img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421170417.png" align="center" style="width:500px" />
+
+
 
 ## 2. HelloWorld
 
@@ -35,13 +38,13 @@
   }
   ```
   
-- 发布 (compile)
+- 编译 (compile)
 
   - 点击 Run & Deploy 先连接本地测试环境，获取 Ganache 中RPC Server 地址，默认 http://127.0.0.1:7545
 
     <img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421164855.png" align="center" style="width:500px"/>
 
-  - 发布
+  - compile
 
     <img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421165112.png" align="center" style="width:500px"/>
 
@@ -70,7 +73,7 @@
   
     
 
-##  3. 变量类型
+##  3. Types 变量类型
 
 bool, uint, int, address, bytes32
 
@@ -139,7 +142,17 @@ contract Types {
 
 
 
-## 4. 函数
+## 4. Functions 函数
+
+函数的类型有两类，默认的是内部函数，因此不需要声明 internal 关键字
+
+- 内部函数类型（internal）
+
+  内部函数只能在当前合约内被调用（在当前代码块内，包括内部库函数和继承的函数中），因为它们不能在当前合约上下文的外部被执行。
+
+- 外部函数类型（external）
+
+  外部函数由一个地址和一个函数签名组成，可以通过外部函数调用传递或者返回。
 
 关键字
 
@@ -147,21 +160,33 @@ contract Types {
 - view 能读写状态变量
 
 ``` solidity
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
-/**
- * 函数
- */
+// Functions
+//  函数类型有两类：
+//  函数类型默认是内部函数，因此不需要声明 internal 关键字
+//      内部函数类型（internal）
+//          内部函数只能在当前合约内被调用（在当前代码块内，包括内部库函数和继承的函数中），因为它们不能在当前合约上下文的外部被执行。
+//      外部函数类型（external）
+//          外部函数由一个地址和一个函数签名组成，可以通过外部函数调用传递或者返回。            
 contract Functions {
-    // external : 外部函数
+    
+    // external : 外部函数，只能在外部读取的函数
     // pure : 纯函数，不能够读写状态变量，只能拥有局部变量
-    function add(uint x, uint y) external pure returns (uint) {
+    function add(uint256 x, uint256 y) external pure returns (uint256) {
         return x + y;
     }
 
-    function sub(uint x, uint y) external pure returns (uint) {
-        return x - y;
+    function sub(uint256 x, uint256 y) external pure returns (uint256) {
+        if(x<y)
+        {
+            return 0;
+        }
+        else
+        {
+            return x - y;
+        }
     }
 }
 ```
