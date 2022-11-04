@@ -449,33 +449,34 @@ contract IfElse {
 
 
 
-## 11. 循环
+## 11. Loops 循环
 
 ``` solidity
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
-/**
- * 循环
- */
+// Loops 循环
 contract ForAndWhileLoops {
-    function forLoops () external pure {
+
+    uint public num = 0;
+    // for 循环
+    function forLoops () external returns (uint) {
         for(uint i = 0; i < 10; i++) {
-            // code ...
             if(i == 3) 
             {
-                // 跳过之后的代码
+                // 跳过本次3 运行之后的代码
                 continue;
             }
-            // more code ...
+            num = num + i;
             if(i == 5)
             {
-                // 跳出循环
+                // 彻底跳出循环，不运行5以后代码
                 break;
             }
         }
+        return num;
     }
-
+    // while 循环
     function whileLoops() external pure {
         uint j = 0;
 
