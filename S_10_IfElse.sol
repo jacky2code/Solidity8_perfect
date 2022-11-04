@@ -1,9 +1,7 @@
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
-/**
- * 结构控制
- */
+// Control Structures 结构控制
 contract IfElse {
     function example (uint x) external pure returns (uint) {
         if(x < 10) {
@@ -15,8 +13,8 @@ contract IfElse {
         }
     }
 
+    // 三元运算
     function ternary(uint x) external pure returns (uint) {
-        // 三目运算
         return x < 10 ? 1 : 2;
     }
 }
