@@ -365,19 +365,21 @@ contract DefaultValues {
 
 
 
-## 9. 常量
+## 9. Constants 常量
 
-使用常量消耗gas比变量少
+变量名约定俗成大写
+
+读取常量消耗的gas会比较小，编译部署，运行下面合约看看调用address分别消耗多少gas（详细需要部署到页面端Remix查看）
 
 ``` solidity
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
-/**
- * 常量
- * 读取常量消耗的gas会比较小，编译部署，运行下面合约看看调用address分别消耗多少gas（详细需要部署到页面端Remix查看）
- */
+//  Constants 常量
+//  变量名约定俗成大写
+//  读取常量消耗的gas会比较小，编译部署，运行下面合约看看调用address分别消耗多少gas（详细需要部署到页面端Remix查看）
 contract Constants {
+    // 管理员地址通常定义为常量，变量名约定俗成大写
     address public constant MY_ADDRESS = 0x08655Ac0d18E0a77C04cdec8bd53A38a925d27f6;
     uint public constant MY_UINT = 123;
 }
@@ -385,6 +387,35 @@ contract Constants {
 contract NormalVar {
     address public NorAddress = 0x08655Ac0d18E0a77C04cdec8bd53A38a925d27f6;
 }
+```
+
+调用 MY_ADDRESS 消耗的 gas 如下：
+
+```bash
+
+from	0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
+to	SimpleStorage.MY_ADDRESS() 0xD7ACd2a9FD159E69Bb102A1ca21C9a3e3A5F771B
+execution cost	21442 gas (Cost only applies when called by a contract)
+input	0x3a7...56cec
+decoded input	{}
+decoded output	{
+	"0": "address: 0x08655Ac0d18E0a77C04cdec8bd53A38a925d27f6"
+}
+logs	[]
+```
+
+调用 NorAddress 消耗的 gas 如下：
+
+``` bash
+from	0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
+to	NormalVar.NorAddress() 0xf8e81D47203A594245E36C48e151709F0C19fBe8
+execution cost	23553 gas (Cost only applies when called by a contract)
+input	0xc3c...f5b35
+decoded input	{}
+decoded output	{
+	"0": "address: 0x08655Ac0d18E0a77C04cdec8bd53A38a925d27f6"
+}
+logs	[]
 ```
 
 
