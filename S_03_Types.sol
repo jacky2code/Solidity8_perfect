@@ -1,15 +1,13 @@
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
-/**
- * 类型
- */
+// Data types -- value and references
 contract Types {
     bool public b = true;
 
-    // uint = uint256 0 to 2**256 -1
-    //        uint8   0 to 2**8 - 1
-    //        uint16  0 to 2**16 - 1
+    // uint = uint256 范围 0 to 2**256 -1
+    //        uint8   范围 0 to 2**8 - 1
+    //        uint16  范围 0 to 2**16 - 1
     uint public u = 123;
 
     // int = int256 -2**255 to 2**255 -1 

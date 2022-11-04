@@ -27,15 +27,14 @@
   创建文件夹 solidity8_perfect，在根目录创建 HelloWorld.sol 文件
 
   ``` solidity
-  // SPDX-License-Identifier: GPL-3.0
-  
-  pragma solidity >=0.8.7 <0.9.0;
+  // SPDX-License-Identifier: MIT
+  pragma solidity ^0.8.7;
   
   contract HelloWorld {
-      string public myString = "hello world!";
+      string public myString = "Hello world!";
   }
   ```
-
+  
 - 发布 (compile)
 
   - 点击 Run & Deploy 先连接本地测试环境，获取 Ganache 中RPC Server 地址，默认 http://127.0.0.1:7545
