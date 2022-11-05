@@ -779,8 +779,8 @@ contract Constructor {
 ## 15. Ownable 权限管理合约
 
 ``` solidity
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
 /**
  * Ownable 权限管理合约 
@@ -791,11 +791,14 @@ pragma solidity >=0.8.7 <0.9.0;
 contract Ownable {
     address public owner;
 
+    // 构造函数
     constructor() {
         owner = msg.sender;
     }
 
+    // 函数修改器
     modifier onlyOwner() {
+        // 调用者必须是合约拥有者
         require(msg.sender == owner, "not owner");
         _;
     }
@@ -803,16 +806,18 @@ contract Ownable {
     // 设置新的所有者
     function setNewOwner(address _newOwner) external onlyOwner {
         // 不可以是 0 地址
-        require(_newOwner != address(0), "address invalid");
+        require(_newOwner != address(0), "invalid address");
         owner = _newOwner;
     }
 
+    // 只有管理员可以调用
     function onlyOwnerCanCallThisFunc() external onlyOwner {
-
+        // more code
     }
 
+    // 任何人可以调用
     function anyOneCanCallThisFunc() external {
-
+        // more code
     }
 }
 ```
