@@ -1,10 +1,12 @@
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
 /**
- * Function modifier 
+ * Function modifier 函数修改器
  * - reuse code before and / or after function
- * Basic, inputs, sandwich
+ * Basic：基本用法
+ * inputs：带参数的用法
+ * sandwich：三明治用法
  */
 contract FunctionModifier {
     bool public paused;
@@ -27,8 +29,10 @@ contract FunctionModifier {
     // ------ end -------
 
     // ------ 使用函数修改器 ------
+    // 把报错提取出来作为一个复用的函数修改器
     modifier whenNotPaused() {
         require(!paused, "paused");
+        // 下划线位置表示，调用函数的其他代码要在修改器的什么位置运行
         _;
     }
     function incNew() external whenNotPaused {
