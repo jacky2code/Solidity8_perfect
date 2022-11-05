@@ -866,29 +866,49 @@ contract FunctionOutputs {
 
 
 
-## 17. 数组
+## 17. Array 数组
 
-dynamic or fixed size 动态数组或者固定长度数组
+数组分类
 
- * Initialization
- * Insert(push), get, update, delete, pop, length
- * Creating array in memory
- * Returning array from function
+- Dynamic Array 动态数组
+- Fixed size Array 定长数组
+
+数组操作
+
+ * Initialization 初始化
+ * push 插入
+ * get 获取
+ * update 更新
+ * delete 删除
+ * pop 弹出
+ * length 长度
+ * Creating array in memory 内存中创建数组
+ * Returning array from function 函数返回数组
 
 ``` solidity
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
 /**
  * 数组
- * - dynamic or fixed size 动态数组或者固定长度数组
- * Initialization
- * Insert(push), get, update, delete, pop, length
- * Creating array in memory
- * Returning array from function
+ * 数组分类
+ * - Dynamic Array 动态数组
+ * - Fixed size Array 定长数组
+ * 数组操作
+ * Initialization 初始化
+ * push 插入
+ * get 获取
+ * update 更新
+ * delete 删除
+ * pop 弹出
+ * length 长度
+ * Creating array in memory 内存中创建数组
+ * Returning array from function 函数返回数组
  */
 contract Array {
+    // 动态数组
     uint[] public nums = [1, 2, 3];
+    // 定长数组
     uint[5] public numsFixed = [4, 5, 6, 7, 8];
 
     function examples() external {
@@ -902,9 +922,9 @@ contract Array {
         nums.pop(); // [1, 2, 777]
         uint len = nums.length;
 
-        // create array in memory
+        // 内存中创建数组
         uint[] memory a = new uint[](5);    
-        // 内存中只能定义定长数组，根据索引赋值。
+        // 内存中只能定义定长数组，根据索引赋值，不能pop或push
         a[1] = 123;
     }
 
