@@ -749,17 +749,17 @@ contract FunctionModifier {
 
 
 
-## 14. 构造函数
+## 14. Constructor 构造函数
 
 构造函数：只在合约部署的时候调用一次，之后不再调用
 
 ``` solidity
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
 /**
- * Constructor 
- * - 构造函数：只在合约部署的时候调用一次，之后不再调用
+ * Constructor - 构造函数
+ * 只在合约部署的时候调用一次，之后不再调用
  */
 contract Constructor {
     address public owner;
