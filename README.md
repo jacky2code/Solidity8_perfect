@@ -778,6 +778,10 @@ contract Constructor {
 
 ## 15. Ownable 权限管理合约
 
+- 通过构造函数设置合约管理员
+- 添加函数修改器，设置必要函数必须通过管理员调用
+- 设置新的管理员方法，必须是管理员调用，并且地址不能是0地址，不然会被锁死
+
 ``` solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
@@ -824,25 +828,28 @@ contract Ownable {
 
 
 
-## 16. 函数返回值
+## 16. Function outputs 函数返回值
 
 ``` solidity
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
 /**
  * 函数返回值
  */
 contract FunctionOutputs {
+
+    // 普通返回值函数
     function returnManay() public pure returns (uint, bool) {
         return (1, true);
     }
 
+    // 返回值命名
     function named() public pure returns (uint x, bool b) {
         return (1, true);
     }
 
-    // 隐式返回
+    // 隐式返回，直接通过参数名赋值
     function namedAssigned() public pure returns (uint x, bool b) {
         x = 1;
         b = false;
@@ -853,16 +860,6 @@ contract FunctionOutputs {
         (uint x, bool b) = returnManay();
         // 只取一个返回值
         (, bool c) = returnManay();
-
-        x = x + 1;
-        if(b)
-        {
-            x = x * 1;
-        }
-        if(c)
-        {
-            x = x * 2;
-        }
     }
 }
 ```
