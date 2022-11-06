@@ -1005,7 +1005,45 @@ contract Array {
   ```
   
    
-## 19. 映射
+## 19. Mapping 映射
+如何声明映射
+
+- 声明简单映射
+
+``` solidity
+// 地址-余额 映射
+mapping(address => uint) public balances;
+```
+
+- 声明嵌套映射
+
+```solidity
+// 多重映射
+mapping(address => mapping(address => bool)) public isFirend;
+```
+
+操作映射
+
+- set
+
+```solidity
+ balances[msg.sender] = 1234;    // 赋值
+```
+
+- get
+
+```solidity
+uint bal = balances[msg.sender];    // 获取值
+```
+
+- delete
+
+```solidity
+delete balances[msg.sender];    // 删除后，变成默认值 0
+```
+
+
+
 从查找是否有 "tom" 这个值
 
 - 第一种
