@@ -1185,23 +1185,21 @@ contract Structs {
 
 
 
-## 22. 枚举 enum
+## 22. Enum 枚举
 
 ``` solidity
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
-/**
- * 枚举
- */
+// Enum 枚举
 contract Enum {
     enum Status {
-        None,
-        Pending,
-        Shipped,
-        Completed,
-        Rejected,
-        Canceled
+        None,       // 第一个值是默认值
+        Pending,    // 处理中
+        Shipped,    // 装载
+        Completed,  // 已完成
+        Rejected,   // 拒绝
+        Canceled    // 取消
     }
 
     Status public status;
