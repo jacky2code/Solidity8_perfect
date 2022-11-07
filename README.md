@@ -1400,22 +1400,21 @@ contract TodoList {
 }
 ```
 
-## 27. 事件
+## 27. Event 事件
 
 ``` solidity
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
 /**
  * 事件：记录当前智能合约运行状态
- * 时间存储更节约gas
+ * 事件存储更节约gas
  */
 contract Event {
     // 声明事件
     event Log(string message, uint val);
     // 带有索引的事件，最多不超过3个索引
     event IndexedLog(address indexed sender, uint val);
-
 
     function example() external {
         // 触发事件
