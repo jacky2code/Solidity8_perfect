@@ -1,9 +1,7 @@
-/**
- * 通过合约部署合约
- */
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
+// 通过合约部署合约
 contract TestContract1 {
     address public owner = msg.sender;
 
@@ -26,7 +24,19 @@ contract TestContract2 {
 }
 
 contract Proxy {
-    // function deploy(bytes memory _code) external payable {
-    //     new TestContract1();
-    // }
+    event Deploy(address);
+
+    function deploy(bytes memory _code) external payable returns (address addr) {
+        // 内联汇编
+        assembly {
+            // create(v,p,n)
+            // v = amount of ETH to send
+            // p = pointer in memory to start of code
+            // n = size of code
+            addr := create(callvalue(), add(_code, 0x20), mload(_code))
+        }
+        require(addr != address(0), "deploy failed!");
+        // 向链外汇报部署合约的地址
+        emit Deploy(addr);
+    }
 }
