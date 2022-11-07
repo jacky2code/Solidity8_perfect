@@ -1329,11 +1329,11 @@ contract SimpleStorage {
 
 
 
-## 26. 待办事项列表
+## 26. Todo list 待办事项列表
 
 ``` solidity
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
 /**
  * 待办事项列表
