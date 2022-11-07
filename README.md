@@ -1139,16 +1139,14 @@ contract IterableMapping {
 ## 21. Structs 结构体
 
 ``` solidity
-// SPDX-License-Identifier: GPL-2.0
-pragma solidity >=0.8.7 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
-/**
- *   Structs
- */
+// Structs 结构体
 contract Structs {
     struct Car {
         string model;
-        uint256 year;
+        uint year;
         address owner;
     }
 
@@ -1161,7 +1159,7 @@ contract Structs {
 
     function example() external {
         Car memory ec6 = Car("NIO EC6", 2021, msg.sender);
-        Car memory et7 = Car({model: "NIO ET7", year: 2022, owner: msg.sender});
+        Car memory et7 = Car({year: 2022, model: "NIO ET7", owner: msg.sender});
         Car memory es8;
         es8.model = "NIO ES8";
         es8.year = 2019;
@@ -1171,9 +1169,11 @@ contract Structs {
         cars.push(et7);
         cars.push(es8);
 
-        Car memory _car = cars[0];
+        // 取出到内存中
+        Car memory _car = cars[1];
         _car.year;
 
+        // 取出到存储中
         Car storage _carModify = cars[0];
         _carModify.year = 2020;
         delete _carModify.owner;
