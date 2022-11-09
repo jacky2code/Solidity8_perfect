@@ -1725,7 +1725,13 @@ receive() exist?  fallback()
  }
 ```
 
-## 34. sentETH
+## 34. Send ETH 发送ETH
+
+三种方法发送 ETH 主币
+
+- transfer，消耗 2300 gas，如果失败 revert
+- send，消耗 2300 gas，返回 boll 值表示是否成功
+- call，消耗所有gas，返回boll值和数据
 
 ```solidity
 // SPDX-License-Identifier: GPL-3.0
@@ -1735,9 +1741,16 @@ pragma solidity ^0.8.7;
 // transfer - 2300 gas, reverts
 // send - 2300 gas, returns bool
 // call - all gas, returns bool and data
-
+/**
+    三种方法发送 ETH 主币
+    1. transfer，消耗 2300 gas，如果失败 revert
+    2. send，消耗 2300 gas，返回 boll 值表示是否成功
+    3. call，消耗剩余所有gas，返回boll值和数据
+ */
 contract SendETH {
+    // 接收主币方法1
     constructor() payable {}
+    // 接收主币方法2
     receive() external payable {}
 
     function sendViaTransfer(address payable _to) external payable {
