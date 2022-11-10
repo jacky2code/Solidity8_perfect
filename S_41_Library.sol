@@ -1,6 +1,7 @@
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
+// 返回最大值
 library Math {
     function max(uint x, uint y) internal pure returns (uint) {
         return x >= y ? x : y;
@@ -13,6 +14,7 @@ contract Test {
     }
 }
 
+// 查找对应索引
 library ArrayLib {
     function findIndex(uint[] storage arr, uint x) internal view returns (uint) {
         for (uint i = 0; i< arr.length; i++) {
@@ -25,6 +27,7 @@ library ArrayLib {
 }
 
 contract TestArray {
+    // 应用库函数
     using ArrayLib for uint[];
     uint[] public arr = [3, 2, 1];
     // 查找数字在数组中的索引
