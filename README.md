@@ -2002,7 +2002,7 @@ A --> B --> C
 ## 40. 工厂合约
 
 ```solidity
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
 contract Account {
