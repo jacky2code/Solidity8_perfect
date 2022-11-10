@@ -1863,10 +1863,10 @@ contract TestContract {
 }
 ```
 
-## 37. 接口合约
+## 37. Interface 接口合约
 
 ```solidity
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
 contract Counter {
@@ -1883,7 +1883,7 @@ contract Counter {
 ```
 
 ```solidity
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
 // 不知道合约代码或者合约代码太庞大，写接口进行调用
