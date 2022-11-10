@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
 /**
@@ -7,7 +7,7 @@ A calls B, sends 100 wei
 A --> B --> C
             msg.sender = B
             msg.value = 50
-            execute code on C's state variables
+            execute code on C's state variables 改变C合约的状态变量
             use ETH in C
 
 A calls B, sends 100 wei
@@ -15,7 +15,7 @@ A calls B, sends 100 wei
 A --> B --> C
             msg.sender = A
             msg.value = 100
-            execute code on B's state variables
+            execute code on B's state variables 改变B合约的状态变量
             use ETH in B
  */
 
