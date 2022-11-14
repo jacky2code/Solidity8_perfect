@@ -111,7 +111,6 @@ contract EnglishAuction {
         require(block.timestamp >= endAt, "not ended");
 
         ended = true;
-        
         // 如果有人竞拍
         if (highestBidder != address(0)) {
             // 发送nft
