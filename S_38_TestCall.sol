@@ -10,7 +10,7 @@ contract TestCall {
     fallback() external payable {
         emit Log("fallback was called");
     }
-
+    
     function foo(string memory _message, uint _x) external payable returns (bool, uint){
         message = _message;
         x = _x;

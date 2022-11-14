@@ -6,7 +6,7 @@ pragma solidity ^0.8.7;
  * 多个人同意的情况下才能转出主币
  */
 contract MultiSignWallet {
-    // 收款事件
+    // 收款事件 
     event Deposit(address indexed sender, uint amount);
     // 提交交易申请
     event Submit(uint indexed txId);
