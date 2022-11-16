@@ -62,7 +62,7 @@ contract ERC20 is IERC20 {
         // 发送者减掉数量
         balanceOf[msg.sender] -= amount;
         // 接受者增加数量
-        balanceOf[recipient] -= amount;
+        balanceOf[recipient] += amount;
         emit Transfer(msg.sender, recipient, amount);
         return true;
     }
